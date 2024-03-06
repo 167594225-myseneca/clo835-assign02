@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sqldb
+  namespace: sqldb
+spec:
+  containers:
+  - name: sqldb
+    image: 796109909635.dkr.ecr.us-east-1.amazonaws.com/jculloa-ecr:mysql
+    ports:
+    - containerPort: 3306
+    env:
+    - name: MYSQL_ROOT_PASSWORD
+      value: pass123
