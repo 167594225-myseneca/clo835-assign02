@@ -3,6 +3,9 @@ kind: Pod
 metadata:
   name: webapp
   namespace: webapp
+  labels:
+    app: employees
+    version: v1
 spec:
   containers:
   - name: webapp
