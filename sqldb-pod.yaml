@@ -4,7 +4,8 @@ metadata:
   name: sqldb
   namespace: sqldb
   labels:
-    app.kubernetes.io/name: sqldb
+    app: mysql
+    component: backend
 spec:
   containers:
   - name: sqldb

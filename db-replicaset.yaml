@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: db-replicaset
+  namespace: sqldb
+  labels:
+    app: mysql
+    component: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+        app: mysql
+        component: backend
+  template:
+    metadata:
+        labels:
+            app: mysql
+            component: backend
+    spec:
+      containers:
+      - name: sqldb
+        image: 796109909635.dkr.ecr.us-east-1.amazonaws.com/jculloa-ecr:mysql
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: pass123
