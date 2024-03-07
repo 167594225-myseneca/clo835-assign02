@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-deploymentv2
+  namespace: webapp
+  labels:
+    app: employees
+    version: v2
+spec:
+  selector:
+    matchLabels:
+      app: employees
+      version: v2
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: employees
+        version: v2
+    spec:
+      containers:
+      - name: webapp-v2
+        image: 796109909635.dkr.ecr.us-east-1.amazonaws.com/jculloa-ecr:appv2
+        ports:
+        - containerPort: 8080
+        env:
+        - name: DBHOST
+          value: db-clustersvc.sqldb.svc.cluster.local
+        - name: DBPORT
+          value: "3306"
+        - name: DBPWD
+          value: pass123
