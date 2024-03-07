@@ -1,21 +1,21 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
-  name: db-replicaset
+  name: sqldb-deployment
   namespace: sqldb
   labels:
     app: mysql
     component: backend
 spec:
-  replicas: 1
   selector:
     matchLabels:
-        app: mysql
+      app: mysql
+  replicas: 1
   template:
     metadata:
-        labels:
-            app: mysql
-            component: backend
+      labels:
+        app: mysql
+        component: backend
     spec:
       containers:
       - name: sqldb
