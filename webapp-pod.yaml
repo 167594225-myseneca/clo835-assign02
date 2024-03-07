@@ -9,7 +9,10 @@ spec:
     image: 796109909635.dkr.ecr.us-east-1.amazonaws.com/jculloa-ecr:app
     ports:
     - containerPort: 8080
-    - ports: 30001
     env:
     - name: DBHOST
-      value: 10.244.0.11
+      value: db-clustersvc.sqldb.svc.cluster.local
+    - name: DBPORT
+      value: "3306"
+    - name: DBPWD
+      value: pass123
