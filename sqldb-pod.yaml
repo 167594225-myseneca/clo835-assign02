@@ -3,9 +3,6 @@ kind: Pod
 metadata:
   name: sqldb
   namespace: sqldb
-  labels:
-    app: mysql
-    component: backend
 spec:
   containers:
   - name: sqldb
@@ -14,4 +11,7 @@ spec:
     - containerPort: 3306
     env:
     - name: MYSQL_ROOT_PASSWORD
-      value: pass123
+      valueFrom:
+        secretKeyRef:
+          name: sqlpass
+          key: sqlpasswd
