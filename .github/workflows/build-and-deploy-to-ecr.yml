@@ -30,8 +30,8 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: jculloa-ecr
-        IMAGE_TAG_APP: appv2
-        IMAGE_TAG_DB: mysqlv2
+        IMAGE_TAG_APP: appv3
+        IMAGE_TAG_DB: mysqlv3
       run: |
         cd app/
         ls -ltra
