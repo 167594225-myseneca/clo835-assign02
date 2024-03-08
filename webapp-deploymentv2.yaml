@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: webapp-v2
-        image: 796109909635.dkr.ecr.us-east-1.amazonaws.com/jculloa-ecr:appv2
+        image: 796109909635.dkr.ecr.us-east-1.amazonaws.com/jculloa-ecr:appv3
         ports:
         - containerPort: 8080
         env:
