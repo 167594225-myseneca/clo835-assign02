@@ -5,7 +5,6 @@ metadata:
   namespace: sqldb
   labels:
     app: mysql
-    component: backend
 spec:
   ports:
   - protocol: TCP
@@ -13,4 +12,3 @@ spec:
     targetPort: 3306
   selector:
     app: mysql
-    component: backend
