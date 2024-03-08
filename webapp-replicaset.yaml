@@ -25,8 +25,11 @@ spec:
         - containerPort: 8080
         env:
         - name: DBHOST
-          value: db-clustersvc.sqldb.svc.cluster.local
+          value: 10.244.0.7
         - name: DBPORT
           value: "3306"
         - name: DBPWD
-          value: pass123
+          valueFrom:
+            secretKeyRef:
+              name: sqlpass
+              key: sqlpasswd
